@@ -16,3 +16,9 @@ toggleBtn.addEventListener('click', () => {
   toggleImg.src = isDark ? 'images/sun-icon.png' : 'images/moon-icon.png'; // Sets image
   localStorage.setItem('theme', isDark ? 'dark' : 'light'); // Sets saved mode
 });
+
+document.querySelectorAll('.slide-up').forEach((el) => {
+  el.addEventListener('animationend', () => {
+    el.classList.remove('slide-up');
+  });
+});
