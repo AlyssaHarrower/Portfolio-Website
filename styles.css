@@ -1,15 +1,15 @@
 :root {
-  --bg: #f9f9f9;
-  --text: #333;
-  --card: #fff;
-  --accent: #007bff;
+  --bg: #FFFFFF;
+  --text: #000022;
+  --card: #82C9E9;
+  --accent: #B6E0F0;
 }
 
 body.dark-mode {
-  --bg: #3A59D1;
-  --text: #B5FCCD;
-  --card: #172d67;
-  --accent: #3ce28e;
+  --bg: #000022;
+  --text: #D0EEF7;
+  --card: #312c4a;
+  --accent: #685e74;
 }
 
 html, body {
@@ -54,18 +54,56 @@ nav ul {
 
 nav a,
 nav button {
+  position: relative;
+  z-index: 1;
   color: var(--text);
-  background: none;
+  background: transparent;
   border: none;
   cursor: pointer;
   text-decoration: none;
   font-size: 1rem;
-  transition: color 0.3s;
+  padding: 10px 15px;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: color 0.3s ease;
 }
 
-nav a:hover,
-nav button:hover {
-  color: var(--accent);
+/* Glowing rectangle effect on hover using ::before */
+nav button::before,
+nav a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  border-radius: 8px;
+  z-index: -1;
+}
+
+nav button:hover::before,
+nav a:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+nav button:hover,
+nav a:hover {
+  color: #fff;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  nav button:hover::before,
+  nav a:hover::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  nav button:hover,
+  nav a:hover {
+    color: #fff;
+  }
 }
 
 .hero {
@@ -86,8 +124,18 @@ section {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 0 20px;
+  max-width: 1400px; /* optional: controls the max stretch on ultra-wide screens */
+  margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+  }
 }
 
 .project-card {
@@ -130,8 +178,8 @@ section {
 }
 
 .resume-btn {
-  background-color: var(--accent);
-  color: #fff;
+  background-color: var(--card);
+  color: var(--text);
   padding: 10px 15px;
   border-radius: 5px;
   text-decoration: none;
@@ -139,7 +187,7 @@ section {
 }
 
 .resume-btn:hover {
-  background-color: #0056b3;
+  background-color: var(--accent);
 }
 
 footer {
