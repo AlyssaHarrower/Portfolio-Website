@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+  (function () {
+    try {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+      document.documentElement.classList.toggle('dark-mode', isDark);
+    } catch (e) {}
+  })();
+</script>
 <head>
+  <link rel="preload" as="image" href="images/moon-icon.png">
+  <link rel="preload" as="image" href="images/sun-icon.png">
+  <link rel="preload" as="image" href="images/topicon-website.png">
+  <link rel="preload" as="image" href="images/topicon-website-lightmode.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Projects | Your Name</title>
+  <title>Projects | Alyssa Harrower</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
     <nav>
-      <h1>Your Name</h1>
+      <h1><image id = "theme-toggle-header-img" src = 'images/topicon-website-lightmode.png' alt = 'Top Icon' width="70" height="75"></h1>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="projects.html" class="active">Projects</a></li>
         <button id="theme-toggle">
-          <img id="theme-toggle-img" src="images/moon-icon.png" alt="Toggle theme" width="24" height="24" />
+          <img id="theme-toggle-img" src="images/moon-icon.png" alt="Toggle theme" width="24" height="24"/>
         </button>
       </ul>
     </nav>
@@ -27,18 +41,18 @@
       <div class="project-grid">
         <!-- Project 1 -->
         <div class="project-card slide-up">
-          <a href="project1.html" class="card-link" aria-label="View Project One"></a>
-          <img src="images/mock_antivirus.png" alt="Screenshot of Project One" class="project-thumb" />
+          <a href="project1.html" class="card-link" aria-label="View Mock Antivirus Project"></a>
+          <img src="images/mock_antivirus.png" alt="Screenshot of Project" class="project-thumb" />
           <h3>Mock Antivirus Software: Senior Project</h3>
-          <p>Two python programs made to recreate signature generation and signature-based detection</p>
+          <p>Two python programs made to recreate signature generation and signature-based detection.</p>
         </div>
 
         <!-- Project 2 -->
         <div class="project-card slide-up">
           <a href="project2.html" class="card-link" aria-label="View Project Two"></a>
-          <img src="images/project2-thumb.png" alt="Screenshot of Project Two" class="project-thumb" />
-          <h3>Project Two</h3>
-          <p>fill in</p>
+          <img src="images/space-ocean-titlepage.png" alt="Screenshot of Project" class="project-thumb" />
+          <h3>Space Ocean</h3>
+          <p>A platformer and shooter game made for Tavern Game Jam during Spring 24'.</p>
         </div>
 
         <!-- Project 3 -->

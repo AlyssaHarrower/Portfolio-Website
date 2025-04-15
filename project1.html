@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+  (function () {
+    try {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+      document.documentElement.classList.toggle('dark-mode', isDark);
+    } catch (e) {}
+  })();
+</script>
 <head>
+  <link rel="preload" as="image" href="images/moon-icon.png">
+  <link rel="preload" as="image" href="images/sun-icon.png">
+  <link rel="preload" as="image" href="images/topicon-website.png">
+  <link rel="preload" as="image" href="images/topicon-website-lightmode.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project One | Your Name</title>
+  <title>Mock Antivirus Software | Alyssa Harrower</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
     <nav>
-      <h1>Your Name</h1>
+      <h1><image id = "theme-toggle-header-img" src = 'images/topicon-website-lightmode.png' alt = 'Top Icon' width="70" height="75"></h1>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="projects.html">Projects</a></li>
         <button id="theme-toggle">
-          <img id="theme-toggle-img" src="moon-icon.png" alt="Toggle theme" width="24" height="24" />
+          <img id="theme-toggle-img" src="moon-icon.png" alt="Toggle theme" width="24" height="24"/>
         </button>
       </ul>
     </nav>
@@ -46,11 +60,11 @@
         </p>
         
         <h3>Technologies Used:</h3>
-        <div class="tech-stack">
-          <span>Python</span>
-          <span>PyInstaller (Python Package for Executable Generation)</span>
-          <span>GitHub</span>
-        </div>
+        <ul>
+          <li>Python</li>
+          <li>PyInstaller (Python Package for Executable Generation)</li>
+          <li>GitHub</li>
+        </ul>
         
         <h3>Features:</h3>
         <ul>
@@ -59,7 +73,7 @@
           <li>User Interface</li>
         </ul>
         <h3>Git Repository:</h3>
-        <div class="project-buttons">
+        <div class="link-buttons">
           <a target="_blank" rel="noopener noreferrer" href="https://github.com/AlyssaHarrower/senior_research">
             <img src="images/github.png" alt="Button Image" width="50" height="50">
           </a>

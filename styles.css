@@ -5,7 +5,7 @@
   --accent: #B6E0F0;
 }
 
-body.dark-mode {
+html.dark-mode {
   --bg: #000022;
   --text: #D0EEF7;
   --card: #312c4a;
@@ -91,6 +91,12 @@ nav a:hover::before {
 nav button:hover,
 nav a:hover {
   color: #fff;
+}
+
+#theme-toggle-img,
+#theme-toggle-header-img {
+  opacity: 1;
+  transition: opacity 0.3s ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -179,17 +185,20 @@ section {
   margin-bottom: 15px;
 }
 
-.resume-btn {
-  background-color: var(--card);
-  color: var(--text);
-  padding: 10px 15px;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background 0.3s ease;
+.link-buttons a {
+  text-decoration: none; /* removes underline */
+  display: inline-block; /* makes the link box only wrap the image */
 }
 
-.resume-btn:hover {
-  background-color: var(--accent);
+.link-buttons img {
+  display: block; /* removes baseline spacing under the image */
+}
+
+.link-buttons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-top: 10px;
 }
 
 footer {

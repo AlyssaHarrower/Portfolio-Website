@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+  (function () {
+    try {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+      document.documentElement.classList.toggle('dark-mode', isDark);
+    } catch (e) {}
+  })();
+</script>
 <head>
+  <link rel="preload" as="image" href="images/moon-icon.png">
+  <link rel="preload" as="image" href="images/sun-icon.png">
+  <link rel="preload" as="image" href="images/topicon-website.png">
+  <link rel="preload" as="image" href="images/topicon-website-lightmode.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Project Two | Your Name</title>
@@ -9,13 +23,13 @@
 <body>
   <header>
     <nav>
-      <h1>Your Name</h1>
+      <h1><image id = "theme-toggle-header-img" src = 'images/topicon-website-lightmode.png' alt = 'Top Icon' width="70" height="75"></h1>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="projects.html">Projects</a></li>
         <button id="theme-toggle">
-          <img id="theme-toggle-img" src="images/moon-icon.png" alt="Toggle theme" width="24" height="24" />
+          <img id="theme-toggle-img" src="images/moon-icon.png" alt="Toggle theme" width="24" height="24"/>
         </button>
       </ul>
     </nav>
@@ -23,36 +37,42 @@
 
   <main>
     <section class="project-header fade-in">
-      <h1>Fill in</h1>
-      <p>Fill in</p>
+      <h1>Space Ocean</h1>
+      <p>A platformer and shooter game made for Tavern Game Jam during Spring 24' under my pseudonym "AABattery0o0".</p>
     </section>
 
     <section class="project-details">
-      <img src="images/project1-large.png" alt="Project Two Screenshot" class="project-image fade-in" />
+      <img src="images/spaceocean-gameplay2.png" alt="Project Two Screenshot" class="project-image fade-in" />
       
       <div class="project-description fade-in">
-        <p></p>
+        <p>Space Ocean was created during a week long game jam alongside two other collaborators. I worked on tilesheets, the fish and monster sprites, and some of the GDScript in Godot. 
+          My good friend who goes by "LuggageGoblin" online mostly worked on the GDScript but also did a lot of work on the lighting, the player character sprite, level design, and tilesheets.
+          The last collaborator with the user "_sujet0" worked on all of the sound design for the game.
+        </p>
         
         <h3>Technologies Used:</h3>
-        <div class="tech-stack">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+        <ul>
+          <li>Godot</li>
+          <li>Aseprite (For Pixel Art)</li>
+          <li>GitHub</li>
+        </ul>
         
         <h3>Features:</h3>
         <ul>
-          <li></li>
-          <li></li>
-          <li></li>
+          <li>Platformer</li>
+          <li>Shooter</li>
         </ul>
       </div>
-      
-      <div class="project-buttons">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/AlyssaHarrower/senior_research">
-          <img src="images/github.png" alt="Button Image" width="50" height="50">
-        </a>
-      </div>
+
+      <h3>Git Repository and Itch.io Page:</h3>
+        <div class="link-buttons">
+          <a target="_blank" rel="noopener noreferrer" href="https://github.com/AlyssaHarrower/senior_research">
+            <img src="images/github.png" alt="Button Image" width="50" height="50">
+          </a>
+          <a target="_blank" rel="noopener noreferrer" href="https://luggagegoblin.itch.io/spaceocean">
+            <img src="images/itch.png" alt="Button Image" width="50" height="50">
+          </a>
+        </div>
     </section>
   </main>
 
