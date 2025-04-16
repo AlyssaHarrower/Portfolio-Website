@@ -7,12 +7,16 @@ function setTheme(isDark) {
 
   const toggleImg = document.getElementById('theme-toggle-img');
   const toggleHeaderImg = document.getElementById('theme-toggle-header-img');
+  const toggleHeroImg = document.getElementById('theme-toggle-hero-img');
 
   if (toggleImg) {
     toggleImg.src = isDark ? 'images/sun-icon.png' : 'images/moon-icon.png';
   }
   if (toggleHeaderImg) {
     toggleHeaderImg.src = isDark ? 'images/topicon-website.png' : 'images/topicon-website-lightmode.png';
+  }
+  if (toggleHeroImg) {
+    toggleHeroImg.src = isDark ? 'images/hero-image.png' : 'images/hero-image-lightmode.png';
   }
 
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
@@ -30,12 +34,17 @@ function setTheme(isDark) {
 
   const toggleImg = document.getElementById('theme-toggle-img');
   const toggleHeaderImg = document.getElementById('theme-toggle-header-img');
+  const toggleHeroImg = document.getElementById('theme-toggle-hero-img');
+  
 
   if (toggleImg) {
     toggleImg.src = isDark ? 'images/sun-icon.png' : 'images/moon-icon.png';
   }
   if (toggleHeaderImg) {
     toggleHeaderImg.src = isDark ? 'images/topicon-website.png' : 'images/topicon-website-lightmode.png';
+  }
+  if (toggleHeroImg) {
+    toggleHeroImg.src = isDark ? 'images/hero-image.png' : 'images/hero-image-lightmode.png';
   }
 })();
 
